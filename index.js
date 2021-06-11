@@ -9,6 +9,12 @@ function onSignIn(googleUser) {
     $("#image").attr('src', profile.getImageUrl());
     $(".data").css("display", "block");
     $(".g-signin2").css("display", "none");
+      console.log('ID: ' + profile.getId());
+  console.log('Full Name: ' + profile.getName());
+  console.log('Given Name: ' + profile.getGivenName());
+  console.log('Family Name: ' + profile.getFamilyName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail());
 }
 
 function signOut() {
