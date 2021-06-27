@@ -2,7 +2,7 @@
 $(document).ready(function() {
     // Use the given data to create
     // the table and display it
-    $('table').bootstrapTable({
+    $('table').DataTable({
         data: mydata
     });
 });
