@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>VM Monitoring Table</title>
+    <link rel="icon" href="https://img.icons8.com/officexs/32/000000/console.png" type="image/icon type">
+    <!-- Include Bootstrap for styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Include the Bootstrap Table CSS for the table -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css">
+</head>
+
+<body>
+    <section>
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="https://img.icons8.com/officexs/64/000000/console.png" width="30" height="30" class="d-inline-block align-top" alt=""> VM Monitoring
+            </a>
+            Name :
+            <p id="name"></p>
+            Image : <img id="image" class="rounded-circle" width="20" height="20" /> Email id :
+            <p id="email"></p>
+            <form class="form-inline">
+                <a href="./index.html" class="btn btn-outline-secondary my-2 my-sm-0" onclick="signOut();">Sign out</a>
+            </form>
+        </nav>
+    </section>
+    <div class="container">
+        <h4 class="text text-secondary text-center mt-3 mb-3">
+            VM Monitoring Screen
+        </h4>
+        <table class="table-striped border-secondary">
+            <thead>
+                <tr>
+                    <th data-field="vmId">
+                        <span class="text-secondary">
+							VM Id
+						</span>
+                    </th>
+                    <th data-field="vmName">
+                        <span class="text-secondary">
+							VM Name
+						</span>
+                    </th>
+                    <th data-field="powerState">
+                        <span class="text-secondary">
+							Power State
+						</span>
+                    </th>
+                    <th data-field="ipAddress">
+                        <span class="text-secondary">
+							IP Address
+						</span>
+                    </th>
+                    <th data-field="vmSize">
+                        <span class="text-secondary">
+							VM Size
+						</span>
+                    </th>
+                    <th id="new" data-field="action">
+                        <span class="text-secondary">
+							Action
+						</span>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+    <!-- Include jQuery and other required
+files for Bootstrap -->
+    <script src="index.js" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+    </script>
+
+    <!-- Include the JavaScript file
+for Bootstrap table -->
+    <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js">
+    </script>
+</body>
+
+</html>
