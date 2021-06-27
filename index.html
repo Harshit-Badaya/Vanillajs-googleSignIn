@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://img.icons8.com/officexs/32/000000/console.png" type="image/icon type">
     <meta name="google-signin-client_id" content="249313712210-5junbk28iu0rhif9um52va83t166uhc6.apps.googleusercontent.com">
-    <title>Sign In With Google Using JavaScript</title>
+    <title>Vm Monitoring</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="./styles.css"> -->
     <style>
@@ -46,50 +47,121 @@
 </head>
 
 <body>
-    <h4 class="alert alert-success text-center">Sign-In With Google Using JavaScript</h4>
+    <nav class="navbar navbar-light bg-light" class="data">
+        <a class="navbar-brand" href="#">
+            <img src="https://img.icons8.com/officexs/64/000000/console.png" width="30" height="30" class="d-inline-block align-top" alt=""> VM Monitoring
+        </a>
+        <form class="form-inline data">
+            <button class="btn btn-outline-danger my-2 my-sm-0" onclick="signOut();" type="submit">Sign Out</button>
+        </form>
+    </nav>
     <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <div class="data container">
+        <h4 class="text text-secondary text-center mt-3 mb-3">
+            VM Monitoring Screen
+        </h4>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">VM Id</th>
+                    <th scope="col">VM Name</th>
+                    <th scope="col"> Power State</th>
+                    <th scope="col">IP Address</th>
+                    <th scope="col">VM Size</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">24596331</th>
+                    <td>Digital Ocean Vm</td>
+                    <td>Sleep state</td>
+                    <td>188.369.346.112</td>
+                    <td>DSv2</td>
+                    <td><img onclick='monitor()' src='https://img.icons8.com/officexs/30/000000/console.png' /></td>
+                </tr>
+                <tr>
+                    <th scope="row">51253364</th>
+                    <td>Google VM</td>
+                    <td>Sleep state</td>
+                    <td>283.369.346.256</td>
+                    <td>DSv8</td>
+                    <td><img onclick='monitor()' src='https://img.icons8.com/officexs/30/000000/console.png' /></td>
+                </tr>
+                <tr>
+                    <th scope="row">8669325</th>
+                    <td>Citrix VM</td>
+                    <td>Soft Off state</td>
+                    <td>128.369.346.152</td>
+                    <td>DCv2</td>
+                    <td><img onclick='monitor()' src='https://img.icons8.com/officexs/30/000000/console.png' /></td>
+                </tr>
+                <tr>
+                    <th scope="row">636325</th>
+                    <td>Azure VM</td>
+                    <td>THibernate state</td>
+                    <td>122.369.346.152</td>
+                    <td>DSv3</td>
+                    <td><img onclick='monitor()' src='https://img.icons8.com/officexs/30/000000/console.png' /></td>
+                </tr>
+                <tr>
+                    <th scope="row">669325</th>
+                    <td>Oracle VM</td>
+                    <td>Working state</td>
+                    <td>122.363.346.256</td>
+                    <td>Dav4</td>
+                    <td><img onclick='monitor()' src='https://img.icons8.com/officexs/30/000000/console.png' /></td>
+                </tr>
+            </tbody>
+        </table>
 
-    <section>
-        <div class="data">
-            <label>Name</label> : <strong> <p id="name"></p> </strong>
-            <label>Image</label> :
-            <img id="image" class="rounded-circle" width="100" height="100" />
-            <br>
-            <label>Email</label> : <strong><p id="email"></p></strong>
+    </div>
 
-            <button type="button" class="btn btn-danger" onclick="signOut();">Sign Out</button>
-        </div>
-        <section>
-            <script>
-                function onSignIn(googleUser) {
-                    var profile = googleUser.getBasicProfile();
-                    console.log(profile)
-                    $("#name").text(profile.getName());
-                    $("#email").text(profile.getEmail());
-                    $("#image").attr('src', profile.getImageUrl());
-                    $(".data").css("display", "block");
-                    $(".g-signin2").css("display", "none");
-                    console.log('ID: ' + profile.getId());
-                    console.log('Full Name: ' + profile.getName());
-                    console.log('Given Name: ' + profile.getGivenName());
-                    console.log('Family Name: ' + profile.getFamilyName());
-                    console.log('Image URL: ' + profile.getImageUrl());
-                    console.log('Email: ' + profile.getEmail());
-                }
+    <div class="data" style="text-align: center;">
+        <h6>Logged User</h6>
+        <label>Name</label> : <strong> <p id="name"></p> </strong>
+        <label>Image</label> :<img id="image" class="rounded-circle" width="20" height="20" />
+        <label>Email</label> : <strong><p id="email"></p></strong>
+    </div>
+    </section>
+    <script>
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log(profile)
+            $("#name").text(profile.getName());
+            $("#email").text(profile.getEmail());
+            $("#image").attr('src', profile.getImageUrl());
+            $(".data").css("display", "block");
+            $(".g-signin2").css("display", "none");
+            console.log('ID: ' + profile.getId());
+            console.log('Full Name: ' + profile.getName());
+            console.log('Given Name: ' + profile.getGivenName());
+            console.log('Family Name: ' + profile.getFamilyName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail());
+        }
 
-                function signOut() {
-                    var auth2 = gapi.auth2.getAuthInstance();
-                    auth2.signOut().then(function() {
-                        alert("You have been signed out successfully");
-                        $(".data").css("display", "none");
-                        $(".g-signin2").css("display", "block");
-                    });
-                }
-            </script>
-            <script src="index.js" async defer></script>
-            <script src="https://apis.google.com/js/platform.js" async defer></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function() {
+                alert("You have been signed out successfully");
+                $(".data").css("display", "none");
+                $(".g-signin2").css("display", "block");
+            });
+        }
+
+        function loginClicked() {
+            alert("Login Clicked !")
+        }
+
+        function monitor() {
+            alert("You clicked Console");
+        }
+    </script>
+    <script src="index.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 
 </html>
