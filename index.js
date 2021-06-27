@@ -1,5 +1,6 @@
 // Write Javascript code!
 $(document).ready(function() {
+       $.noConflict();
     // Use the given data to create
     // the table and display it
     $('table').DataTable({
